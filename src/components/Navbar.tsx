@@ -1,13 +1,14 @@
 import { NavLink } from "react-router";
 
+
 export default function Navbar() {
   const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
     isActive
-      ? "text-white underline-orange font-bold"
+      ? "text-white underline decoration-orange-500 decoration-2 underline-offset-4 font-bold"
       : "text-gray-700 font-semibold";
 
   return (
-    <div>
+    <div className="flex gap-4 bg-black p-4">
       <span
         className="text-[#E50914] font-black tracking-tight text-4xl"
         style={{ fontFamily: "'Bebas Neue', sans-serif" }}
@@ -18,7 +19,7 @@ export default function Navbar() {
         <NavLink to="/" className={navLinkStyle}>
           Home
         </NavLink>
-        <NavLink to="tvshow" className={navLinkStyle}>
+        <NavLink to="shows" className={navLinkStyle}>
           TV Shows
         </NavLink>
         <NavLink to="movies" className={navLinkStyle}>

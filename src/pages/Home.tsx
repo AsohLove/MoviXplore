@@ -3,7 +3,6 @@ import { useState } from "react"
 import { fetchTrending, searchMovies } from "../api/movies"
 import SearchBar from "../components/SearchBar";
 import MovieGrid from "../components/MovieGrid";
-import Navbar from "../components/Navbar";
 import PopularMovies from "../components/PopularMovies";
 import NewMovies from "../components/NewMovies";
 
@@ -18,7 +17,6 @@ export default function Home(){
 
     return (
         <div className="bg-black/90">
-            <Navbar />
             <SearchBar 
             query={query} 
             setQuery={setQuery}
