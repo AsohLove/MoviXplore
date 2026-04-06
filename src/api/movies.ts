@@ -21,3 +21,9 @@ export async function fetchMoviesById(id: number) {
     const res = await fetch(`${BASE_URL}/movie/${id}`, options)
     return res.json();
 }
+
+export async function fetchNowPlaying(): Promise<MovieResponse> {
+  const res = await fetch(`${BASE_URL}/movie/now_playing`, options);
+  return res.json();
+
+}
