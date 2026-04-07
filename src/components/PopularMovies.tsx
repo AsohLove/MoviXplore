@@ -19,7 +19,7 @@ export default function PopularMovies() {
     )
   return (
     <div>
-        <h1 className="text-xl font-extrabold mb-4">Popular on Cinema Noir</h1>
+        <h1 className="text-xl mt-4 font-extrabold mb-4">Popular on Cinema Noir</h1>
         <div className="grid grid-col-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 text-white gap-4">
             {data?.results.map((movie)=> (
             <MovieCard key={movie.id} movie={movie}/>

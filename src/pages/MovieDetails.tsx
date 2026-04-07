@@ -1,42 +1,46 @@
 import { useQuery } from "@tanstack/react-query";
-import { useNavigate, useParams } from "react-router"
+import { useNavigate, useParams } from "react-router";
 import { fetchMoviesById } from "../api/movies";
 import Loader from "../components/Loader";
 import { motion } from "framer-motion";
 import { IMG_URL } from "../api/tmdb";
 
-export default function MovieDetails(){
-    const { id } = useParams();
+export default function MovieDetails() {
+  const { id } = useParams();
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const { data: movie, isLoading, isError} = useQuery({
-        queryKey: ["movie", id],
-        queryFn: () => fetchMoviesById(Number(id)),
-    });
+  const {
+    data: movie,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["movie", id],
+    queryFn: () => fetchMoviesById(Number(id)),
+  });
 
-    if (isLoading) return <Loader />
+  if (isLoading) return <Loader />;
 
-    if (isError)  return (
-        <p className="text-center text-red-500 mt-6">
-            Something went wrong. Please try again.
-        </p>
-    )
-      return (
+  if (isError)
+    return (
+      <p className="text-center text-red-500 mt-6">
+        Something went wrong. Please try again.
+      </p>
+    );
+  return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="max-w-6xl mx-auto p-6"
     >
-
-         <button
+      <button
         onClick={() => navigate(-1)}
         className="mb-6 text-sm text-gray-500 cursor-pointer"
       >
         ← Back
       </button>
-      {/* Backdrop */}
+
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -63,30 +67,24 @@ export default function MovieDetails(){
         </motion.h1>
       </motion.div>
 
-      {/* Content */}
       <div className="flex flex-col md:flex-row gap-8">
-        {/* Poster */}
         <motion.img
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           src={
-            movie.poster_path
-              ? IMG_URL + movie.poster_path
-              : "/placeholder.png"
+            movie.poster_path ? IMG_URL + movie.poster_path : "/placeholder.png"
           }
           alt={movie.title}
           className="w-48 h-72 object-cover rounded-xl shadow-lg self-start"
         />
 
-        {/* Details */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           className="flex flex-col gap-4"
         >
-          {/* Genres */}
           <div className="flex flex-wrap gap-2">
             {movie.genres?.map((genre: { id: number; name: string }) => (
               <span
@@ -98,7 +96,6 @@ export default function MovieDetails(){
             ))}
           </div>
 
-          {/* Meta */}
           <div className="flex items-center gap-4 text-sm text-gray-500">
             <span>📅 {movie.release_date?.slice(0, 4)}</span>
             <span>⭐ {movie.vote_average?.toFixed(1)}/10</span>
@@ -106,18 +103,15 @@ export default function MovieDetails(){
             <span>🕐 {movie.runtime} min</span>
           </div>
 
-          {/* Overview */}
           <div>
             <h2 className="text-lg font-semibold mb-2">Overview</h2>
             <p className="text-gray-600 leading-relaxed">{movie.overview}</p>
           </div>
 
-          {/* Tagline */}
           {movie.tagline && (
             <p className="text-gray-400 italic">"{movie.tagline}"</p>
           )}
 
-          {/* Budget & Revenue */}
           <div className="flex gap-6 text-sm">
             {movie.budget > 0 && (
               <div>

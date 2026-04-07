@@ -1,35 +1,33 @@
-import { useQuery } from "@tanstack/react-query"
-import { useState } from "react"
-import { fetchTrending, searchMovies } from "../api/movies"
+// pages/Home.tsx
+import { useState } from "react";
 import SearchBar from "../components/SearchBar";
-import MovieGrid from "../components/MovieGrid";
 import PopularMovies from "../components/PopularMovies";
 import NewMovies from "../components/NewMovies";
+import InfiniteMovieGrid from "../components/InfiniteMovieGrid";
 
-export default function Home(){
-    const [query, setQuery] = useState("")
-    const [searchQuery, setSearchQuery] = useState("")
+export default function Home() {
+  const [searchQuery, setSearchQuery] = useState("");
 
-    const { data, isLoading, isError } = useQuery({
-        queryKey: ["movies", searchQuery],
-        queryFn:() => searchQuery.trim() ? searchMovies(searchQuery) : fetchTrending(),
-    });
+  return (
+    <div className="min-h-screen text-white">
+      <div className="px-10 pt-10">
+        <SearchBar
+          query={searchQuery}
+          setQuery={setSearchQuery}
+          onSearch={setSearchQuery}
+        />
+      </div>
 
-    return (
-        <div className="bg-black/90">
-            <SearchBar 
-            query={query} 
-            setQuery={setQuery}
-            onSearch={setSearchQuery}
-            />
-            <MovieGrid
-            movies={data?.results ?? []}
-            isLoading={isLoading}
-            isError={isError}
-            />
-            {/* <TrendingMovies /> */}
-            <PopularMovies />
-            <NewMovies />
-        </div>
-    )
+      {!searchQuery.trim() && (
+        <>
+          <PopularMovies />
+          <NewMovies />
+        </>
+      )}
+
+      <div className="px-10 py-6">
+        <InfiniteMovieGrid query={searchQuery} />
+      </div>
+    </div>
+  );
 }

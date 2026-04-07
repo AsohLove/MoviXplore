@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDebounce } from "use-debounce";
-import { Search, Bell, CircleUserRound } from "lucide-react";
+import { Search } from "lucide-react";
 
 type Props = {
   query: string;
@@ -25,12 +25,10 @@ export default function SearchBar({ query, setQuery, onSearch }: Props) {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search Movies"
-        className="bg-transparent outline-none w-full text-sm"
+        className="bg-transparent outline-none w-full text-black text-sm"
       />
     </div>
 
-    <Bell className="w-6 h-6 cursor-pointer hover:text-orange-500 transition-colors" />
-    <CircleUserRound className="w-6 h-6 cursor-pointer hover:text-orange-500 transition-colors" />
   </div>
 );
 }

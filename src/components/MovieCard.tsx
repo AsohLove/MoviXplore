@@ -1,4 +1,3 @@
-// components/MovieCard.tsx
 import { useNavigate } from "react-router-dom";
 import { IMG_URL } from "../api/tmdb";
 import type { Movie } from "../types/movie";
@@ -12,7 +11,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
 
   return (
     <div className="relative rounded-lg overflow-hidden shadow cursor-pointer group">
-      {/* Poster */}
+      
       <img
         onClick={() => navigate(`/movie/${movie.id}`)}
         src={
@@ -24,7 +23,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
         className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
       />
 
-      {/* Favorite Button */}
+    
       <button
         onClick={() => toggleFavorite(movie)}
         className="absolute top-2 right-2 p-1.5 bg-black/50 rounded-full hover:bg-black/80 transition"
@@ -34,7 +33,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
         />
       </button>
 
-      {/* Info */}
+      
       <div
         onClick={() => navigate(`/movie/${movie.id}`)}
         className="p-2"

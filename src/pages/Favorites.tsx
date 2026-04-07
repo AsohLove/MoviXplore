@@ -1,4 +1,3 @@
-// pages/Favorites.tsx
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
@@ -10,7 +9,7 @@ export default function Favorites() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-black text-white px-10 py-10">
+    <div className="min-h-screen px-10 py-10">
       
       <motion.div
         initial={{ opacity: 0, y: -20 }}
