@@ -7,8 +7,8 @@ export default function Navbar() {
 
   const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
     isActive
-      ? "text-white font-semibold border-b-2 border-red-600 pb-0.5"
-      : "text-gray-300 hover:text-white transition font-semibold";
+      ? " font-semibold border-b-2 border-red-600 pb-0.5"
+      : "hover:text-gray-700 transition font-semibold";
 
   return (
     <nav className="flex items-center justify-between bg-white dark:bg-black px-10 py-4 text-black dark:text-white">

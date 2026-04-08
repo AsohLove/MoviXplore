@@ -9,7 +9,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <div className="min-h-screen text-white">
+    <div className="min-h-screen">
       <div className="px-10 pt-10">
         <SearchBar
           query={searchQuery}
