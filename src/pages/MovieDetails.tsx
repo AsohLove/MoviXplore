@@ -4,12 +4,16 @@ import { fetchMoviesById } from "../api/movies";
 import Loader from "../components/Loader";
 import { motion } from "framer-motion";
 import { IMG_URL } from "../api/tmdb";
+import { useRecentlyViewed } from "../hooks/useRecentlyViewed";
+import { useEffect } from "react";
 
 export default function MovieDetails() {
+  const { addMovie } = useRecentlyViewed()
   const { id } = useParams();
 
   const navigate = useNavigate();
 
+  
   const {
     data: movie,
     isLoading,
@@ -19,6 +23,11 @@ export default function MovieDetails() {
     queryFn: () => fetchMoviesById(Number(id)),
   });
 
+  useEffect(() => {
+      if(movie) addMovie(movie)
+  }, [movie]);
+
+
   if (isLoading) return <Loader />;
 
   if (isError)
@@ -27,6 +36,8 @@ export default function MovieDetails() {
         Something went wrong. Please try again.
       </p>
     );
+
+    
   return (
     <motion.div
       initial={{ opacity: 0 }}

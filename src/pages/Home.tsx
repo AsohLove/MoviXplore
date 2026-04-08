@@ -4,6 +4,7 @@ import SearchBar from "../components/SearchBar";
 import PopularMovies from "../components/PopularMovies";
 import NewMovies from "../components/NewMovies";
 import InfiniteMovieGrid from "../components/InfiniteMovieGrid";
+import RecentlyViewed from "../components/RecentlyViewed";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,6 +18,8 @@ export default function Home() {
           onSearch={setSearchQuery}
         />
       </div>
+
+      {!searchQuery.trim() && <RecentlyViewed />}
 
       {!searchQuery.trim() && (
         <>
