@@ -1,9 +1,13 @@
 const BASE_URL = "https://api.themoviedb.org/3";
 const TOKEN = import.meta.env.VITE_TMDB_TOKEN;
 
+if (!TOKEN) {
+  console.error("TMDB token is missing. Check your .env file.");
+}
+
 export const options = {
   headers: {
-    Authorization: `Bearer ${TOKEN}`,
+    Authorization: TOKEN ? `Bearer ${TOKEN}` : "",
     "Content-Type": "application/json",
   },
 };

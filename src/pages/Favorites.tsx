@@ -10,7 +10,6 @@ export default function Favorites() {
 
   return (
     <div className="min-h-screen px-10 py-10">
-      
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -23,7 +22,6 @@ export default function Favorites() {
         </p>
       </motion.div>
 
-      
       {favorites.length > 0 ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {favorites.map((movie, index) => (
@@ -34,7 +32,6 @@ export default function Favorites() {
               transition={{ duration: 0.3, delay: index * 0.05 }}
               className="group cursor-pointer"
             >
-             
               <div className="relative overflow-hidden rounded-sm">
                 <img
                   onClick={() => navigate(`/movie/${movie.id}`)}
@@ -47,18 +44,17 @@ export default function Favorites() {
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
 
-                
                 <button
-                  onClick={() => toggleFavorite(movie)}
-                  className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleFavorite(movie);
+                  }}
+                  className="absolute top-2 right-2 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-3 py-1 cursor-pointer rounded text-white text-xs"
                 >
-                  <span className="text-white text-sm font-semibold border border-white px-3 py-1 rounded hover:bg-white hover:text-black transition">
-                    Remove
-                  </span>
+                  Remove
                 </button>
               </div>
 
-              
               <div
                 className="mt-2"
                 onClick={() => navigate(`/movie/${movie.id}`)}
@@ -77,7 +73,6 @@ export default function Favorites() {
           ))}
         </div>
       ) : (
-       
         <div className="flex flex-col items-center justify-center mt-32 gap-4 text-gray-500">
           <p className="text-xl">No titles saved yet.</p>
           <p className="text-sm">
@@ -86,7 +81,6 @@ export default function Favorites() {
         </div>
       )}
 
-     
       {favorites.length > 0 && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -108,7 +102,6 @@ export default function Favorites() {
         </motion.div>
       )}
 
-      
       <button
         onClick={() => navigate("/")}
         className="fixed bottom-8 right-8 w-14 h-14 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center shadow-lg transition"

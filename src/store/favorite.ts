@@ -1,4 +1,3 @@
-
 import type { Movie } from "../types/movie";
 
 const KEY = "movixplore_favorites";
@@ -19,7 +18,7 @@ export function removeFavorite(id: number): void {
   const favorites = getFavorites();
   localStorage.setItem(
     KEY,
-    JSON.stringify(favorites.filter((m) => m.id !== id))
+    JSON.stringify(favorites.filter((m) => m.id !== id)),
   );
 }
 

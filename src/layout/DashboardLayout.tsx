@@ -8,6 +8,9 @@ export default function DashboardLayout() {
         <main>
             <Outlet />
         </main>
+        <footer>
+          <h3>ALL Rights Reserved &copy; 2026</h3>
+        </footer>
     </div>
   )
 }
