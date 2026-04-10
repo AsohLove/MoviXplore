@@ -1,4 +1,4 @@
-import type { Movie, MovieResponse } from "../types/movie";
+import type { Movie, MovieResponse, TvResponse } from "../types/movie";
 import BASE_URL, { options } from "./tmdb";
 
 export async function fetchTrending(page = 1): Promise<MovieResponse> {
@@ -48,6 +48,15 @@ export async function fetchMoviesById(id: number): Promise<Movie> {
 
 export async function fetchNowPlaying(): Promise<MovieResponse> {
   const res = await fetch(`${BASE_URL}/movie/now_playing`, options);
+
+  if (!res.ok) {
+    throw new Error(`API Error: ${res.status}`);
+  }
+  return res.json();
+}
+
+export async function fetchTvShows(page = 1): Promise<TvResponse> {
+  const res = await fetch(`${BASE_URL}/trending/tv/day?page${page}`, options);
 
   if (!res.ok) {
     throw new Error(`API Error: ${res.status}`);

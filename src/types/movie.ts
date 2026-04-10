@@ -20,3 +20,19 @@ export interface MovieResponse {
   total_pages: number;
   total_results: number;
 }
+
+export interface TvShowTypes {
+  id: number;
+  name: string;
+  original_language: string;
+  first_air_date: string;
+  poster_path: string | null;
+  vote_average: number;
+}
+
+export interface TvResponse {
+  page: number;
+  results: TvShowTypes[];
+  total_pages: number;
+  total_results: number;
+}
