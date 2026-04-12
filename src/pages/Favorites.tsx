@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import { IMG_URL } from "../api/tmdb";
-import useFavotite from "../hooks/useFavotite";
+import useFavorite from "../hooks/useFavorite";
 
 export default function Favorites() {
-  const { favorites, toggleFavorite } = useFavotite();
+  const { favorites, toggleFavorite } = useFavorite();
   const navigate = useNavigate();
 
   return (
@@ -62,7 +62,9 @@ export default function Favorites() {
                 <p className="text-sm font-semibold truncate">{movie.title}</p>
                 <div className="flex items-center gap-2 text-xs mt-0.5">
                   <span className="text-green-400 font-bold">
-                    {Math.round(movie.vote_average * 10)}% Match
+                    {movie.vote_average
+                          ? `${Math.round(movie.vote_average * 10)}% Match`
+                          : "N/A"}
                   </span>
                   <span className="text-gray-400">
                     {movie.release_date?.slice(0, 4)}
@@ -76,7 +78,7 @@ export default function Favorites() {
         <div className="flex flex-col items-center justify-center mt-32 gap-4 text-gray-500">
           <p className="text-xl">No titles saved yet.</p>
           <p className="text-sm">
-            Click the + icon on any movie to add it here.
+            Click the Heart icon on any movie to add it here.
           </p>
         </div>
       )}
@@ -106,7 +108,7 @@ export default function Favorites() {
         onClick={() => navigate("/")}
         className="fixed bottom-8 right-8 w-14 h-14 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center shadow-lg transition"
       >
-        <Plus className="w-6 h-6 text-white" />
+        <Plus  className="w-6 h-6 text-white"/>
       </button>
     </div>
   );

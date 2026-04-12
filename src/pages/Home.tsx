@@ -5,6 +5,7 @@ import PopularMovies from "../components/PopularMovies";
 import NewMovies from "../components/NewMovies";
 import InfiniteMovieGrid from "../components/InfiniteMovieGrid";
 import RecentlyViewed from "../components/RecentlyViewed";
+import TvShows from "./TvShows";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -25,12 +26,17 @@ export default function Home() {
         <>
           <PopularMovies />
           <NewMovies />
+          <TvShows />
         </>
       )}
+
+      
 
       <div className="px-4 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-5 md:py-6">
         <InfiniteMovieGrid query={searchQuery} />
       </div>
+
+      
     </div>
   );
 }
