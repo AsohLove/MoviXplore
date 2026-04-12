@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <div className="px-10 pt-10">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-10 pt-6 sm:pt-8 md:pt-10 ">
         <SearchBar
           query={searchQuery}
           setQuery={setSearchQuery}
@@ -28,7 +28,7 @@ export default function Home() {
         </>
       )}
 
-      <div className="px-10 py-6">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-5 md:py-6">
         <InfiniteMovieGrid query={searchQuery} />
       </div>
     </div>

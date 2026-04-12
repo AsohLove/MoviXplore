@@ -44,9 +44,9 @@ export default function InfiniteMovieGrid({ query }: Props) {
 
   const movies = data?.pages.flatMap((page) => page.results) ?? [];
 
-  if (!movies.length) return (
-    <p className="text-center text-gray-500 mt-6">No movies found.</p>
-  );
+  // if (!movies.length) return (
+  //   <p className="text-center text-gray-500 mt-6">No movies found.</p>
+  // );
 
   return (
     <div>

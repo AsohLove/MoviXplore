@@ -32,7 +32,6 @@
 
 ### Environment Variables
   Create a `.env.local` file in the root directory: VITE_TMDB_API_KEY=your_api_key_here
-   
 
 
 ## :electric_plug: How to Run the Project

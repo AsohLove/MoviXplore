@@ -39,10 +39,12 @@ export default function MovieCard({ movie }: { movie: Movie }) {
         className="p-2"
       >
         <p className="font-semibold truncate">{movie.title}</p>
-        <p className="text-sm text-gray-500">
+        <div className="flex justify-between ">
+          <p className="text-lg text-gray-500">
           {movie.release_date?.slice(0, 4)}
         </p>
         <p>⭐ {movie.vote_average.toFixed(2)}</p>
+        </div>
       </div>
     </div>
   );

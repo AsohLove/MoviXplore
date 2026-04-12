@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { IMG_URL } from "../api/tmdb";
 import { useRecentlyViewed } from "../hooks/useRecentlyViewed";
 import { useEffect } from "react";
+import { Play } from "lucide-react";
+
 
 export default function MovieDetails() {
   const { addMovie } = useRecentlyViewed()
@@ -112,6 +114,13 @@ export default function MovieDetails() {
             <span>⭐ {movie.vote_average?.toFixed(1)}/10</span>
             <span>🗳️ {movie.vote_count?.toLocaleString()} votes</span>
             <span>🕐 {movie.runtime} min</span>
+            <a 
+            href={`https://vidsrc-embed.ru/embed/movie?tmdb=${movie.id}&sub_url=https%3A%2F%2Fvidsrc.me%2Fsample.srt&autoplay=1`}
+            target="_self"
+            >
+            <Play size={24}/>
+            </a>
+            
           </div>
 
           <div>

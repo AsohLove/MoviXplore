@@ -12,6 +12,11 @@ export interface Movie {
   adult: boolean;
   original_language: string;
   original_title: string;
+  genres: { id: number; name: string }[];
+  runtime: string;
+  tagline: string;
+  revenue: number;
+  budget: number;
 }
 
 export interface MovieResponse {

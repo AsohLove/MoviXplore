@@ -33,7 +33,7 @@ export default function RecentlyViewed() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: index * 0.05 }}
             onClick={() => navigate(`/movie/${movie.id}`)}
-            className="flex-shrink-0 w-32 cursor-pointer group"
+            className="shrink-0 w-32 cursor-pointer group"
           >
             <div className="relative overflow-hidden rounded-lg">
               <img
