@@ -6,6 +6,7 @@ import NewMovies from "../components/NewMovies";
 import InfiniteMovieGrid from "../components/InfiniteMovieGrid";
 import RecentlyViewed from "../components/RecentlyViewed";
 import TvShows from "./TvShows";
+import TrendingMovies from "../components/TrendingMovies";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -24,6 +25,7 @@ export default function Home() {
 
       {!searchQuery.trim() && (
         <>
+          <TrendingMovies />
           <PopularMovies />
           <NewMovies />
           <TvShows />

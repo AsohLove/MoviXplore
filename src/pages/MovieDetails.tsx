@@ -128,7 +128,7 @@ export default function MovieDetails() {
             <p className="text-gray-600 leading-relaxed">{movie?.overview}</p>
           </div>
 
-          {movie.tagline && (
+          {movie?.tagline && (
             <p className="text-gray-400 italic">"{movie?.tagline}"</p>
           )}
 
@@ -137,7 +137,7 @@ export default function MovieDetails() {
               <div>
                 <p className="text-gray-400">Budget</p>
                 <p className="font-semibold">
-                  ${movie?.budget?.toLocaleString()}
+                  ${movie?.budget.toLocaleString()}
                 </p>
               </div>
             )}
@@ -145,7 +145,7 @@ export default function MovieDetails() {
               <div>
                 <p className="text-gray-400">Revenue</p>
                 <p className="font-semibold">
-                  ${movie?.revenue?.toLocaleString()}
+                  ${movie?.revenue.toLocaleString()}
                 </p>
               </div>
             )}
