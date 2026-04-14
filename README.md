@@ -15,7 +15,7 @@
 
 ## :sparkles: Features
 
-- Recently Viewed  
+- Recently Viewed section
 - New Releases 
 - Save favorite movies
 - Dark/Light mode toggle
