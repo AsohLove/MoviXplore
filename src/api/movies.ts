@@ -56,7 +56,7 @@ export async function fetchNowPlaying(): Promise<MovieResponse> {
 }
 
 export async function fetchTvShows(page = 1): Promise<TvResponse> {
-  const res = await fetch(`${BASE_URL}/trending/tv/day?page${page}`, options);
+  const res = await fetch(`${BASE_URL}/trending/tv/day?page=${page}`, options);
 
   if (!res.ok) {
     throw new Error(`API Error: ${res.status}`);

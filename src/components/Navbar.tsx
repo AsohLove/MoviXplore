@@ -12,7 +12,7 @@ export default function Navbar() {
       ? "font-semibold border-b-2 border-red-600 pb-0.5"
       : "hover:text-gray-700 dark:hover:text-gray-300 transition font-semibold";
 
-  const mobileStyle = ({ isActive }) =>
+  const mobileStyle = ({ isActive }: { isActive: boolean }) =>
     `py-2 px-3 rounded transition ${
       isActive
         ? "text-red-600 font-semibold bg-gray-100 dark:bg-gray-800"
