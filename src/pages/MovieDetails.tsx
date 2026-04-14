@@ -39,6 +39,14 @@ export default function MovieDetails() {
       </p>
     );
 
+  if (!movie) {
+    return (
+      <p className="text-center text-gray-500 mt-6">
+        Movie not found.
+      </p>
+    );
+  }
+
     
   return (
     <motion.div
@@ -137,7 +145,7 @@ export default function MovieDetails() {
               <div>
                 <p className="text-gray-400">Budget</p>
                 <p className="font-semibold">
-                  ${movie?.budget.toLocaleString()}
+                  ${movie?.budget?.toLocaleString()}
                 </p>
               </div>
             )}
@@ -145,7 +153,7 @@ export default function MovieDetails() {
               <div>
                 <p className="text-gray-400">Revenue</p>
                 <p className="font-semibold">
-                  ${movie?.revenue.toLocaleString()}
+                  ${movie?.revenue?.toLocaleString()}
                 </p>
               </div>
             )}
