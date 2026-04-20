@@ -21,10 +21,9 @@ export default function Home() {
         />
       </div>
 
-      {!searchQuery.trim() && <RecentlyViewed />}
-
       {!searchQuery.trim() && (
         <>
+          <RecentlyViewed />
           <TrendingMovies />
           <PopularMovies />
           <NewMovies />
