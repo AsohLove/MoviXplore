@@ -1,6 +1,3 @@
-// pages/Home.tsx
-import { useState } from "react";
-import SearchBar from "../components/SearchBar";
 import PopularMovies from "../components/PopularMovies";
 import NewMovies from "../components/NewMovies";
 import InfiniteMovieGrid from "../components/InfiniteMovieGrid";
@@ -8,20 +5,19 @@ import RecentlyViewed from "../components/RecentlyViewed";
 import TvShows from "./TvShows";
 import TrendingMovies from "../components/TrendingMovies";
 import HeroSection from "../components/HeroSection";
+import { useOutletContext } from "react-router";
+
+type ContextType = {
+  searchQuery: string;
+}
 
 export default function Home() {
-  const [searchQuery, setSearchQuery] = useState("");
+  const {searchQuery} = useOutletContext<ContextType>()
+
 
   return (
     <div className="min-h-screen">
-      <div className="px-4 sm:px-6 md:px-8 lg:px-10 pt-6 sm:pt-8 md:pt-10 ">
-        <SearchBar
-          query={searchQuery}
-          setQuery={setSearchQuery}
-          onSearch={setSearchQuery}
-        />
-      </div>
-
+    
       {!searchQuery.trim() && (
         <>
           <HeroSection />
