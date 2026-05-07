@@ -7,6 +7,7 @@ import InfiniteMovieGrid from "../components/InfiniteMovieGrid";
 import RecentlyViewed from "../components/RecentlyViewed";
 import TvShows from "./TvShows";
 import TrendingMovies from "../components/TrendingMovies";
+import HeroSection from "../components/HeroSection";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,8 +22,11 @@ export default function Home() {
         />
       </div>
 
+      
+
       {!searchQuery.trim() && (
         <>
+          <HeroSection />
           <RecentlyViewed />
           <TrendingMovies />
           <PopularMovies />

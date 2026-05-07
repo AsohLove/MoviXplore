@@ -20,33 +20,35 @@ export default function Navbar() {
     }`;
 
   return (
-    <nav className="flex items-center justify-between bg-white dark:bg-black px-4 sm:px-6 md:px-10 py-4 text-black dark:text-white relative">
-      <span
-        className="text-[#E50914] font-black tracking-tight text-2xl sm:text-3xl whitespace-nowrap"
-        style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-      >
-        MOVIXPLORE
-      </span>
+    <nav className="flex items-center bg-white dark:bg-black px-4 sm:px-6 md:px-10 py-4 text-black dark:text-white relative">
+      <div className="flex items-center gap-10">
+        <span
+          className="text-[#E50914] font-black tracking-tight text-2xl sm:text-3xl whitespace-nowrap"
+          style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+        >
+          MOVIXPLORE
+        </span>
 
-      <div className="hidden md:flex gap-6 text-sm lg:text-base">
-        <NavLink to="/" className={navLinkStyle}>
-          Home
-        </NavLink>
-        <NavLink to="/tvshows" className={navLinkStyle}>
-          TV Shows
-        </NavLink>
-        <NavLink to="/movies" className={navLinkStyle}>
-          Movies
-        </NavLink>
-        <NavLink to="/popular" className={navLinkStyle}>
-          New & Popular
-        </NavLink>
-        <NavLink to="/favorite" className={navLinkStyle}>
-          My List
-        </NavLink>
+        <div className="hidden md:flex gap-6 text-sm lg:text-base">
+          <NavLink to="/" className={navLinkStyle}>
+            Home
+          </NavLink>
+          <NavLink to="/tvshows" className={navLinkStyle}>
+            TV Shows
+          </NavLink>
+          <NavLink to="/movies" className={navLinkStyle}>
+            Movies
+          </NavLink>
+          <NavLink to="/popular" className={navLinkStyle}>
+            New & Popular
+          </NavLink>
+          <NavLink to="/favorite" className={navLinkStyle}>
+            My List
+          </NavLink>
+        </div>
       </div>
 
-      <div className="flex items-center gap-3 sm:gap-4">
+      <div className="flex items-center gap-3 sm:gap-4 ml-auto">
         <Search className="w-5 h-5 cursor-pointer hover:text-gray-300 transition" />
 
         <button onClick={toggleTheme}>
