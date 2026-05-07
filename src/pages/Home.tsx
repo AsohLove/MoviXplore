@@ -22,8 +22,6 @@ export default function Home() {
         />
       </div>
 
-      
-
       {!searchQuery.trim() && (
         <>
           <HeroSection />
@@ -35,13 +33,9 @@ export default function Home() {
         </>
       )}
 
-      
-
       <div className="px-4 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-5 md:py-6">
         <InfiniteMovieGrid query={searchQuery} />
       </div>
-
-      
     </div>
   );
 }

@@ -27,6 +27,8 @@ export default function HeroSection() {
 
   if (!movie) return null;
 
+  console.log(import.meta.env); // Vite
+
   const image = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
 
   return (
