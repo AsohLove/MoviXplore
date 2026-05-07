@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Search, Bell, User, Sun, Moon, Menu, X } from "lucide-react";
+import { Bell, User, Sun, Moon, Menu, X } from "lucide-react";
 import { useTheme } from "../hooks/useTheme";
+import SearchBar from "./SearchBar";
 
-export default function Navbar() {
+type Props = {
+  query: string;
+  setQuery: (query: string) => void;
+};
+
+export default function Navbar({query, setQuery}: Props) {
   const { dark, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -49,7 +55,11 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center gap-3 sm:gap-4 ml-auto">
-        <Search className="w-5 h-5 cursor-pointer hover:text-gray-300 transition" />
+        <SearchBar 
+          query={query}
+          setQuery={setQuery}
+          onSearch={() => {}}
+        />
 
         <button onClick={toggleTheme}>
           {dark ? (
