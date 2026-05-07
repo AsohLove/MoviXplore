@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import type { MovieResponse } from "../types/movie";
 import { fetchTrending } from "../api/movies";
 import { useEffect, useMemo, useState } from "react";
+import { Info, Play } from "lucide-react";
 
 export default function HeroSection() {
   const { data } = useQuery<MovieResponse>({
@@ -44,8 +45,8 @@ export default function HeroSection() {
      
       <div className="relative z-10 flex h-full items-center px-6 md:px-12">
         <div className="max-w-xl text-white">
-          <p className="mb-2 text-sm uppercase tracking-[0.3em] text-red-500">
-            Trending Movie
+          <p className="mb-2 text-sm font=bold uppercase tracking-[0.3em] text-red-500">
+            CINEMA NOIR ORIGINALS
           </p>
 
           <h1 className="mb-4 text-4xl font-extrabold md:text-6xl">
@@ -57,12 +58,12 @@ export default function HeroSection() {
           </p>
 
           <div className="flex gap-4">
-            <button className="rounded bg-white px-6 py-2 font-semibold text-black hover:bg-gray-200">
-              Play
+            <button className="rounded flex gap-1 bg-white px-6 py-2 font-semibold text-black hover:bg-gray-200 cursor-pointer">
+               <Play size={20} className="fill-black"/> Play
             </button>
 
-            <button className="rounded bg-gray-700 px-6 py-2 font-semibold text-white hover:bg-gray-600">
-              More Info
+            <button className="rounded flex gap-1 bg-gray-700 px-6 py-2 font-semibold text-white hover:bg-gray-600 cursor-pointer">
+              <Info size={20} color="white" /> More Info
             </button>
           </div>
         </div>
